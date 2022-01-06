@@ -1,0 +1,3 @@
+[submodule "GrapherX/vendor/Spdlog"]
+	path = GrapherX/vendor/Spdlog
+	url = https://github.com/gabime/spdlog.git

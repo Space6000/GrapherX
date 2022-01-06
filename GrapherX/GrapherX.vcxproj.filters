@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="src">
+      <UniqueIdentifier>{2DAB880B-99B4-887C-2230-9F7C8E38947C}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Core">
+      <UniqueIdentifier>{A5D31CCF-91A0-77DA-BAB9-6582A6E5AC68}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Graphic">
+      <UniqueIdentifier>{5A0A6777-C6BF-DF6C-4FB4-D943BB68D670}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Graphic\DirectX">
+      <UniqueIdentifier>{1CA7548E-8808-329C-1176-784E7DD6685B}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Graphic\ImGui">
+      <UniqueIdentifier>{045B0872-7071-0608-B9E8-9129253ED78F}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Window">
+      <UniqueIdentifier>{74C3D837-607B-1A85-C982-F3E0B559B575}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="vendor">
+      <UniqueIdentifier>{B3738122-9F15-ACF8-88D0-BF4C74113349}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="vendor\Spdlog">
+      <UniqueIdentifier>{6BA8BAD7-D768-360E-A0A3-7F8B0C237BEA}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\Core\Application.h">
+      <Filter>src\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Core\EntryPoint.h">
+      <Filter>src\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Core\GrapherXException.h">
+      <Filter>src\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Core\KeyCode.h">
+      <Filter>src\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Core\Log.h">
+      <Filter>src\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\GrapherX.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Graphic\DirectX\Graphics.h">
+      <Filter>src\Graphic\DirectX</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Window\GrapherXwin.h">
+      <Filter>src\Window</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Window\Window.h">
+      <Filter>src\Window</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Window\WindowInput.h">
+      <Filter>src\Window</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\Core\Application.cpp">
+      <Filter>src\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Core\GrapherXException.cpp">
+      <Filter>src\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Core\Log.cpp">
+      <Filter>src\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Graphic\DirectX\Graphics.cpp">
+      <Filter>src\Graphic\DirectX</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Graphic\ImGui\ImGuiBuild.cpp">
+      <Filter>src\Graphic\ImGui</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Window\Window.cpp">
+      <Filter>src\Window</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Window\WindowInput.cpp">
+      <Filter>src\Window</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="vendor\Spdlog\include">
+      <Filter>vendor\Spdlog</Filter>
+    </None>
+  </ItemGroup>
+</Project>
