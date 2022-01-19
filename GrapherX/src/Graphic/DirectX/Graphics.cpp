@@ -1,6 +1,7 @@
 #include "Graphics.h"
-
 #pragma comment(lib,"d3d11.lib")
+#include "Graphic/ImGui/imgui_impl_dx11.h"
+#include "Graphic/ImGui/imgui_impl_win32.h"
 
 Grapher::Graphics::Graphics(HWND hwnd)
 {
@@ -36,12 +37,13 @@ Grapher::Graphics::Graphics(HWND hwnd)
 		nullptr,
 		&pContext
 	);
-
-
+	ImGui_ImplDX11_Init(pDevice, pContext);
+	CreateRenderTarget();
 }
 
 Grapher::Graphics::~Graphics()
 {
+	ImGui_ImplDX11_Shutdown();
 	if (pContext != nullptr)
 	{
 		pContext->Release();
@@ -54,9 +56,43 @@ Grapher::Graphics::~Graphics()
 	{
 		pDevice->Release();
 	}
+
+
+	if (g_mainRenderTargetView) { g_mainRenderTargetView->Release(); g_mainRenderTargetView = NULL; }
 }
 
 void Grapher::Graphics::EndFrame()
 {
-	pSwap->Present(1u,0u);
+	pSwap->Present(1u, 0u);
+	ImGui_ImplDX11_NewFrame();
+	ImGui_ImplWin32_NewFrame();
+	ImGui::NewFrame();
+	static bool show_demo_window = true;
+	if (show_demo_window)
+		ImGui::ShowDemoWindow(&show_demo_window);
+	ImGui::Render();
+
+	const float clear_color_with_alpha[4] = { 0,0,0,0 };
+	pContext->OMSetRenderTargets(1, &g_mainRenderTargetView, NULL);
+	pContext->ClearRenderTargetView(g_mainRenderTargetView, clear_color_with_alpha);
+	ImGui_ImplDX11_RenderDrawData(ImGui::GetDrawData());
+}
+
+
+void Grapher::Graphics::CreateRenderTarget()
+{
+	ID3D11Texture2D* pBackBuffer;
+	pSwap->GetBuffer(0, IID_PPV_ARGS(&pBackBuffer));
+	pDevice->CreateRenderTargetView(pBackBuffer, NULL, &g_mainRenderTargetView);
+	pBackBuffer->Release();
+}
+
+void Grapher::Graphics::CleanupRenderTarget()
+{
+	if (g_mainRenderTargetView) 
+	{ 
+		g_mainRenderTargetView->Release(); 
+		g_mainRenderTargetView = NULL; 
+	}
+
 }

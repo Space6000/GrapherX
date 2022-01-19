@@ -81,7 +81,8 @@ project "SandBox"
 	{
 		"GrapherX/vendor/spdlog/include",
 		"GrapherX/src",
-		"GrapherX/vendor"
+		"GrapherX/vendor",
+		"GrapherX/Graphic/ImGui"
 	}
 	
 	filter "system:windows"

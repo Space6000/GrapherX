@@ -1,5 +1,9 @@
 #include "Application.h"
 #include "KeyCode.h"
+#include "Graphic/ImGui/imgui.h"
+#include "Graphic/ImGui/imgui_impl_dx11.h"
+#include "Graphic/ImGui/imgui_impl_win32.h"
+
 namespace Grapher
 {
 
@@ -27,6 +31,16 @@ namespace Grapher
 			{
 				GP_CORE_INFO("Space Key is pressed..");
 			}
+			/*
+			ImGui_ImplDX11_NewFrame();
+			ImGui_ImplWin32_NewFrame();
+			ImGui::NewFrame();
+			static bool show_demo_window = true;
+			if (show_demo_window)
+				ImGui::ShowDemoWindow(&show_demo_window);
+			ImGui::Render();
+			ImGui_ImplDX11_RenderDrawData(ImGui::GetDrawData());
+			*/
 			app.Gfx().EndFrame();
 		}
 

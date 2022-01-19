@@ -1,5 +1,5 @@
 #include "Window.h"
-
+#include "Graphic/DirectX/Graphics.h"
 namespace Grapher
 {
 	// Class Exception
@@ -95,10 +95,13 @@ namespace Grapher
 		ShowWindow(m_Hwnd, SW_SHOW);
 
 		pGfx = std::make_unique<Graphics>(m_Hwnd);
+		ImGui_ImplWin32_Init(m_Hwnd);
+
 	}
 
 	Window::~Window()
 	{
+		ImGui_ImplWin32_Shutdown();
 		DestroyWindow(m_Hwnd);
 	}
 
@@ -156,24 +159,26 @@ namespace Grapher
 
 	LRESULT Window::HandleMsg(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam) noexcept
 	{
+		if (ImGui_ImplWin32_WndProcHandler(hWnd, msg, wParam, lParam))
+			return true;
 		switch (msg)
 		{
-		case WM_KEYDOWN:
-		{
-			
-			break;
-		}
-		case WM_KEYUP:
-		{
-			break;
-		}
-		case WM_CHAR:
-		{
-			break;
-		}
-		case WM_CLOSE:
-			PostQuitMessage(0);
-			return 0;
+		
+			case WM_KEYDOWN:
+			{
+				break;
+			}
+			case WM_KEYUP:
+			{
+				break;
+			}
+			case WM_CHAR:
+			{
+				break;
+			}
+			case WM_CLOSE:
+				PostQuitMessage(0);
+				return 0;
 		}
 
 		return DefWindowProc(hWnd, msg, wParam, lParam);

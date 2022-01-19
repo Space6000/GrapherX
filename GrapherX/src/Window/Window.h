@@ -5,6 +5,8 @@
 #include "Graphic/DirectX/Graphics.h"
 #include <optional>
 #include <memory>
+#include "Graphic/ImGui/imgui_impl_win32.h"
+
 namespace Grapher
 {
 	class Window

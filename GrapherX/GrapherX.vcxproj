@@ -96,6 +96,15 @@
     <ClInclude Include="src\Core\Log.h" />
     <ClInclude Include="src\GrapherX.h" />
     <ClInclude Include="src\Graphic\DirectX\Graphics.h" />
+    <ClInclude Include="src\Graphic\ImGui\ImguiManager.h" />
+    <ClInclude Include="src\Graphic\ImGui\imconfig.h" />
+    <ClInclude Include="src\Graphic\ImGui\imgui.h" />
+    <ClInclude Include="src\Graphic\ImGui\imgui_impl_dx11.h" />
+    <ClInclude Include="src\Graphic\ImGui\imgui_impl_win32.h" />
+    <ClInclude Include="src\Graphic\ImGui\imgui_internal.h" />
+    <ClInclude Include="src\Graphic\ImGui\imstb_rectpack.h" />
+    <ClInclude Include="src\Graphic\ImGui\imstb_textedit.h" />
+    <ClInclude Include="src\Graphic\ImGui\imstb_truetype.h" />
     <ClInclude Include="src\Window\GrapherXwin.h" />
     <ClInclude Include="src\Window\Window.h" />
     <ClInclude Include="src\Window\WindowInput.h" />
@@ -105,7 +114,14 @@
     <ClCompile Include="src\Core\GrapherXException.cpp" />
     <ClCompile Include="src\Core\Log.cpp" />
     <ClCompile Include="src\Graphic\DirectX\Graphics.cpp" />
-    <ClCompile Include="src\Graphic\ImGui\ImGuiBuild.cpp" />
+    <ClCompile Include="src\Graphic\ImGui\ImguiManager.cpp" />
+    <ClCompile Include="src\Graphic\ImGui\imgui.cpp" />
+    <ClCompile Include="src\Graphic\ImGui\imgui_demo.cpp" />
+    <ClCompile Include="src\Graphic\ImGui\imgui_draw.cpp" />
+    <ClCompile Include="src\Graphic\ImGui\imgui_impl_dx11.cpp" />
+    <ClCompile Include="src\Graphic\ImGui\imgui_impl_win32.cpp" />
+    <ClCompile Include="src\Graphic\ImGui\imgui_tables.cpp" />
+    <ClCompile Include="src\Graphic\ImGui\imgui_widgets.cpp" />
     <ClCompile Include="src\Window\Window.cpp" />
     <ClCompile Include="src\Window\WindowInput.cpp" />
   </ItemGroup>

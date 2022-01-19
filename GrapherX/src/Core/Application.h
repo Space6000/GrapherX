@@ -4,6 +4,7 @@
 #include "Log.h"
 #include "Window/Window.h"
 #include "Window/WindowInput.h"
+#include "Graphic/ImGui/ImguiManager.h"
 namespace Grapher
 {
 	class Application
@@ -13,6 +14,8 @@ namespace Grapher
 		~Application();
 		int Go();
 		void Run();
+	private:
+		ImguiManager imguiManager;
 	};
 
 	Application* CreateApp();
