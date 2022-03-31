@@ -2,9 +2,9 @@
 #include <memory>
 #include <iostream>
 #include "Log.h"
-#include "Window/Window.h"
-#include "Window/WindowInput.h"
-#include "Graphic/ImGui/ImguiManager.h"
+#include "Events/Event.h"
+#include "Window/WindowsWindow.h"
+
 namespace Grapher
 {
 	class Application
@@ -14,8 +14,10 @@ namespace Grapher
 		~Application();
 		int Go();
 		void Run();
+		void OnEvent(Event& e);
 	private:
-		ImguiManager imguiManager;
+
+		std::unique_ptr<WindowsWindow> window = std::make_unique<WindowsWindow>(L"GrapherX", 1024, 768);
 	};
 
 	Application* CreateApp();

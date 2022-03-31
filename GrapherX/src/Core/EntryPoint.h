@@ -5,8 +5,8 @@ extern Grapher::Application* Grapher::CreateApp();
 int main(int argc, char** argv) 
 {
 	Grapher::Log::Init();
-	GP_CORE_WARN("Initialized Log!");
-	Grapher::Application* App = new Grapher::Application;
+	GP_CORE_INFO("Window Created!");
+	auto App = Grapher::CreateApp();
 	App->Run();
 	delete App;
 }

@@ -7,6 +7,9 @@
     <Filter Include="src\Core">
       <UniqueIdentifier>{A5D31CCF-91A0-77DA-BAB9-6582A6E5AC68}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\Events">
+      <UniqueIdentifier>{7162C20E-5D1A-045C-C621-DDB7B2F89E4C}</UniqueIdentifier>
+    </Filter>
     <Filter Include="src\Graphic">
       <UniqueIdentifier>{5A0A6777-C6BF-DF6C-4FB4-D943BB68D670}</UniqueIdentifier>
     </Filter>
@@ -42,6 +45,18 @@
     <ClInclude Include="src\Core\Log.h">
       <Filter>src\Core</Filter>
     </ClInclude>
+    <ClInclude Include="src\Events\ApplicationEvent.h">
+      <Filter>src\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Events\Event.h">
+      <Filter>src\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Events\KeyEvent.h">
+      <Filter>src\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Events\MouseEvent.h">
+      <Filter>src\Events</Filter>
+    </ClInclude>
     <ClInclude Include="src\GrapherX.h">
       <Filter>src</Filter>
     </ClInclude>
@@ -51,35 +66,15 @@
     <ClInclude Include="src\Graphic\ImGui\ImguiManager.h">
       <Filter>src\Graphic\ImGui</Filter>
     </ClInclude>
-    <ClInclude Include="src\Graphic\ImGui\imconfig.h">
-      <Filter>src\Graphic\ImGui</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Graphic\ImGui\imgui.h">
-      <Filter>src\Graphic\ImGui</Filter>
-    </ClInclude>
     <ClInclude Include="src\Graphic\ImGui\imgui_impl_dx11.h">
       <Filter>src\Graphic\ImGui</Filter>
     </ClInclude>
     <ClInclude Include="src\Graphic\ImGui\imgui_impl_win32.h">
       <Filter>src\Graphic\ImGui</Filter>
     </ClInclude>
-    <ClInclude Include="src\Graphic\ImGui\imgui_internal.h">
-      <Filter>src\Graphic\ImGui</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Graphic\ImGui\imstb_textedit.h">
-      <Filter>src\Graphic\ImGui</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Window\GrapherXwin.h">
+    <ClInclude Include="src\Window\WindowsWindow.h">
       <Filter>src\Window</Filter>
     </ClInclude>
-    <ClInclude Include="src\Window\Window.h">
-      <Filter>src\Window</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Window\WindowInput.h">
-      <Filter>src\Window</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Graphic\ImGui\imstb_rectpack.h" />
-    <ClInclude Include="src\Graphic\ImGui\imstb_truetype.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Core\Application.cpp">
@@ -97,25 +92,15 @@
     <ClCompile Include="src\Graphic\ImGui\ImguiManager.cpp">
       <Filter>src\Graphic\ImGui</Filter>
     </ClCompile>
-    <ClCompile Include="src\Graphic\ImGui\imgui.cpp">
-      <Filter>src\Graphic\ImGui</Filter>
-    </ClCompile>
     <ClCompile Include="src\Graphic\ImGui\imgui_impl_dx11.cpp">
       <Filter>src\Graphic\ImGui</Filter>
     </ClCompile>
     <ClCompile Include="src\Graphic\ImGui\imgui_impl_win32.cpp">
       <Filter>src\Graphic\ImGui</Filter>
     </ClCompile>
-    <ClCompile Include="src\Window\Window.cpp">
+    <ClCompile Include="src\Window\WindowsWindow.cpp">
       <Filter>src\Window</Filter>
     </ClCompile>
-    <ClCompile Include="src\Window\WindowInput.cpp">
-      <Filter>src\Window</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Graphic\ImGui\imgui_draw.cpp" />
-    <ClCompile Include="src\Graphic\ImGui\imgui_widgets.cpp" />
-    <ClCompile Include="src\Graphic\ImGui\imgui_demo.cpp" />
-    <ClCompile Include="src\Graphic\ImGui\imgui_tables.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="vendor\Spdlog\include">

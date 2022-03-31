@@ -9,6 +9,9 @@ workspace "GrapherX-Dev"
 
 outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 
+IncludeDir = {}
+IncludeDir["ImGui"] = "GrapherX/vendor/imgui"
+include "GrapherX/vendor/imgui"
 
 project "GrapherX"
 
@@ -33,8 +36,14 @@ project "GrapherX"
 	{
 		"%{prj.name}/src",
 		"%{prj.name}/vendor/spdlog/include",
+		"%{IncludeDir.ImGui}"
 	}
 
+	links 
+	{ 
+		"ImGui"
+	}
+	
 	filter "system:windows"
 		systemversion "latest"
 
@@ -81,8 +90,7 @@ project "SandBox"
 	{
 		"GrapherX/vendor/spdlog/include",
 		"GrapherX/src",
-		"GrapherX/vendor",
-		"GrapherX/Graphic/ImGui"
+		"GrapherX/vendor"
 	}
 	
 	filter "system:windows"

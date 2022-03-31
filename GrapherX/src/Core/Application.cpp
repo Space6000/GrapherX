@@ -1,14 +1,12 @@
 #include "Application.h"
-#include "KeyCode.h"
-#include "Graphic/ImGui/imgui.h"
-#include "Graphic/ImGui/imgui_impl_dx11.h"
-#include "Graphic/ImGui/imgui_impl_win32.h"
 
 namespace Grapher
 {
+#define BIND_EVENT_FN(x) std::bind(&Application::x,this, std::placeholders::_1)
 
 	Application::Application()
 	{
+		window->SetEventCallback(BIND_EVENT_FN(OnEvent));
 	}
 
 	Application::~Application()
@@ -17,31 +15,15 @@ namespace Grapher
 
 	int Application::Go()
 	{
-		Window app(L"GrapherX", 1024, 768);
 		while (true)
 		{
 			// process all messages pending, but to not block for new messages
-			if (const auto ecode = Window::ProcessMessage())
+			if (const auto ecode = window->ProcessMessage())
 			{
 				// if return optional has value, means we're quitting so return exit code
 				return *ecode;
-			
 			}
-			if (Grapher::WindowInput::IsKeyPressed(GP_KEY_SPACE))
-			{
-				GP_CORE_INFO("Space Key is pressed..");
-			}
-			/*
-			ImGui_ImplDX11_NewFrame();
-			ImGui_ImplWin32_NewFrame();
-			ImGui::NewFrame();
-			static bool show_demo_window = true;
-			if (show_demo_window)
-				ImGui::ShowDemoWindow(&show_demo_window);
-			ImGui::Render();
-			ImGui_ImplDX11_RenderDrawData(ImGui::GetDrawData());
-			*/
-			app.Gfx().EndFrame();
+			window->Gfx().EndFrame();
 		}
 
 		return 0;
@@ -68,5 +50,10 @@ namespace Grapher
 			GP_CORE_ERROR("Unknown Exception");
 			MessageBox(nullptr, L"No Details Found", L"Unknown Exception", MB_OK | MB_ICONEXCLAMATION);
 		}
+	}
+	void Application::OnEvent(Event& e)
+	{
+		//GP_CORE_INFO("{0}", e);
+		EventDispatcher dispatcher(e);
 	}
 }
