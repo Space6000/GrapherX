@@ -1,5 +1,5 @@
 #pragma once
-#include "imgui.h"
+#include "imgui/imgui.h"
 
 namespace Grapher
 {
@@ -11,4 +11,3 @@ namespace Grapher
 	};
 
 }
-

@@ -1,9 +1,12 @@
 #pragma once
-#include "Window/GrapherXwin.h"
-#include <d3d11.h>
 #include <wrl.h>
-
 #include <tchar.h>
+#include <d3d11.h>
+#include <Windows.h>
+#include "Graphic/ImGui/imgui_impl_dx11.h"
+#include "Graphic/ImGui/imgui_impl_win32.h"
+
+#include "Graphic/ImGui/ImguiManager.h"
 namespace Grapher
 {
 	class Graphics
@@ -11,25 +14,20 @@ namespace Grapher
 	public:
 		Graphics(HWND hwnd);
 		Graphics(const Graphics& graphics) = delete;
-		// Graphics& operater=(const Graphics ) = delete;
+		Graphics operator=(const Graphics& graphics)= delete;
 		~Graphics();
 		void EndFrame();
 		void CreateRenderTarget();
-		void CleanupRenderTarget();
 
-	//private:
-		ID3D11Device* pDevice = nullptr;
-		IDXGISwapChain* pSwap = nullptr;
-		ID3D11DeviceContext* pContext = nullptr;
-		ID3D11RenderTargetView* g_mainRenderTargetView = nullptr;
+	private:
+		Microsoft::WRL::ComPtr < ID3D11Device> pDevice;
+		Microsoft::WRL::ComPtr < IDXGISwapChain> pSwap;
+		Microsoft::WRL::ComPtr < ID3D11DeviceContext> pContext;
+		Microsoft::WRL::ComPtr < ID3D11RenderTargetView> g_mainRenderTargetView;
 
+	private:
 
-//mVec4 clear_color = ImVec4(0.45f, 0.55f, 0.60f, 1.00f);
-		//nst float clear_color_with_alpha[4] = { clear_color.x * clear_color.w, clear_color.y * clear_color.w, clear_color.z * clear_color.w, clear_color.w };
-
-		//Microsoft::WRL::ComPtr<ID3D11Device> pDevice;
-		//Microsoft::WRL::ComPtr<IDXGISwapChain> pSwap;
-		//Microsoft::WRL::ComPtr<ID3D11DeviceContext> pContext;
+		ImVec4 clear_color = ImVec4(0.45f, 0.55f, 0.60f, 1.00f);
 
 	};
 
